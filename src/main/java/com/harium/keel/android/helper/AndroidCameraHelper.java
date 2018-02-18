@@ -25,8 +25,10 @@ public class AndroidCameraHelper {
         int height = image.getHeight();
 
         if (reader.getImageFormat() == ImageFormat.YUV_420_888) {
-            return getRGBFromPlanes(width, height, image.getPlanes(), out);
+            getRGBFromPlanes(width, height, image.getPlanes(), out);
         }
+
+        image.close();
         return out;
     }
 
